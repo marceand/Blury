@@ -7,6 +7,7 @@ import marceme.com.blury.model.Feed;
 import marceme.com.blury.model.FeedResult;
 import marceme.com.blury.model.Profile;
 import marceme.com.blury.model.ProfileResult;
+import marceme.com.blury.model.ScoreResult;
 import retrofit2.http.GET;
 import rx.Observable;
 
@@ -24,4 +25,7 @@ public interface BluryApiService {
 
     @GET("classes/feed")
     Observable<FeedResult> geFeed();
+
+    @GET("classes/score")
+    Observable<ScoreResult> geScore();
 }

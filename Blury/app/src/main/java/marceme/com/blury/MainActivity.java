@@ -10,7 +10,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import marceme.com.blury.Helper.BottomNavigationViewHelper;
-import marceme.com.blury.profile.HomeFragment;
+import marceme.com.blury.home.HomeFragment;
+import marceme.com.blury.scoreboard.MainScoreboardFragment;
 import timber.log.Timber;
 
 public class MainActivity extends AppCompatActivity {
@@ -59,7 +60,8 @@ public class MainActivity extends AppCompatActivity {
                         addFragmentToContainer(HomeFragment.newInstance());
                         return true;
                     case R.id.navigation_score:
-                        //mTextMessage.setText(R.string.title_dashboard);
+                        Timber.i("on score navigation");
+                        addFragmentToContainer(MainScoreboardFragment.newInstance());
                         return true;
                     case R.id.navigation_message:
                         //mTextMessage.setText(R.string.title_notifications);

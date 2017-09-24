@@ -23,7 +23,7 @@ public class ApiServiceFactory {
     private static final String PARSE_APPLICATION_ID_NAME = "X-Parse-Application-Id";
     private static final String PARSE_CLIENT_KEY_NAME = "X-Parse-Client-Key";
     private static final String PARSE_APPLICATION_ID = "";
-    private static final String PARSE_CLIENT_KEY ="";
+    private static final String PARSE_CLIENT_KEY = "";
 
     public static BluryApiService makeBluryApiService(){
         return new Retrofit.Builder()

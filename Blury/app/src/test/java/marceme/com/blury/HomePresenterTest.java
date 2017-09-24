@@ -12,8 +12,8 @@ import java.util.List;
 
 import marceme.com.blury.model.Feed;
 import marceme.com.blury.model.Profile;
-import marceme.com.blury.profile.HomePresenter;
-import marceme.com.blury.profile.HomeViewController;
+import marceme.com.blury.home.HomePresenter;
+import marceme.com.blury.home.HomeViewController;
 import marceme.com.blury.remote.DataManager;
 import rx.Observable;
 
@@ -66,7 +66,7 @@ public class HomePresenterTest {
     }
 
     @Test
-    public void loadProfileFail() throws Exception{
+        public void loadProfileFail() throws Exception{
         stubDataManagerGetProfile(Observable.error(new RuntimeException()));
         homePresenter.loadProfile();
         verify(homeViewController, never()).showProfile(any(Profile.class));

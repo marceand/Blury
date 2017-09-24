@@ -1,4 +1,4 @@
-package marceme.com.blury.profile;
+package marceme.com.blury.home;
 
 
 import android.os.Bundle;
@@ -85,7 +85,7 @@ public class HomeFragment extends Fragment implements HomeViewController{
     }
 
     private void setupToolbar(View view) {
-        Toolbar toolbar = (Toolbar) view.findViewById(R.id.app_bar);
+        Toolbar toolbar = (Toolbar) view.findViewById(R.id.profile_toolbar);
         ((AppCompatActivity)getActivity()).setSupportActionBar(toolbar);
     }
 

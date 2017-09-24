@@ -6,6 +6,9 @@ import marceme.com.blury.model.Feed;
 import marceme.com.blury.model.FeedResult;
 import marceme.com.blury.model.Profile;
 import marceme.com.blury.model.ProfileResult;
+import marceme.com.blury.model.Score;
+import marceme.com.blury.model.ScoreResult;
+import marceme.com.blury.scoreboard.ScoreboardPresenter;
 import rx.Observable;
 import rx.functions.Func1;
 
@@ -37,6 +40,15 @@ public class DataManager {
             @Override
             public List<Feed> call(FeedResult feedResult) {
                 return feedResult.results();
+            }
+        });
+    }
+
+    public Observable<List<Score>> getScore() {
+        return bluryApiService.geScore().map(new Func1<ScoreResult, List<Score>>() {
+            @Override
+            public List<Score> call(ScoreResult scoreResult) {
+                return scoreResult.results();
             }
         });
     }

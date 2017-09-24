@@ -1,4 +1,4 @@
-package marceme.com.blury.profile;
+package marceme.com.blury.home;
 
 import java.util.List;
 

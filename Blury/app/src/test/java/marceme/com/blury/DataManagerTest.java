@@ -12,12 +12,13 @@ import marceme.com.blury.model.Feed;
 import marceme.com.blury.model.FeedResult;
 import marceme.com.blury.model.Profile;
 import marceme.com.blury.model.ProfileResult;
+import marceme.com.blury.model.Score;
+import marceme.com.blury.model.ScoreResult;
 import marceme.com.blury.remote.BluryApiService;
 import marceme.com.blury.remote.DataManager;
 import rx.Observable;
 import rx.observers.TestSubscriber;
 
-import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.doReturn;
 
 /**
@@ -70,5 +71,21 @@ public class DataManagerTest {
         testSubscriber.assertCompleted();
         testSubscriber.assertValueCount(1);
         testSubscriber.assertValue(feedResult.results());
+    }
+
+    @Test
+    public void getScore() throws Exception{
+        ScoreResult scoreResult= ScoreFactory.makeScoreResult();
+
+        doReturn(Observable.just(scoreResult))
+                .when(bluryApiService)
+                .geScore();
+
+        TestSubscriber<List<Score>> testSubscriber = new TestSubscriber<>();
+        dataManager.getScore().subscribe(testSubscriber);
+
+        testSubscriber.assertCompleted();
+        testSubscriber.assertValueCount(1);
+        testSubscriber.assertValue(scoreResult.results());
     }
 }
