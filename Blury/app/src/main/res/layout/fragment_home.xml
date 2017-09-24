@@ -1,0 +1,124 @@
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                                 xmlns:tools="http://schemas.android.com/tools"
+                                                 android:layout_width="match_parent"
+                                                 android:layout_height="match_parent"
+                                                 xmlns:app="http://schemas.android.com/apk/res-auto"
+                                                 tools:context="marceme.com.blury.profile.HomeFragment">
+
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <android.support.design.widget.CollapsingToolbarLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#F2F2F2"
+            android:fitsSystemWindows="true"
+            app:contentScrim="#F2F2F2"
+            app:expandedTitleTextAppearance="@android:color/transparent"
+            app:titleEnabled="false"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed|snap">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_collapseMode="parallax"
+                android:layout_marginTop="60dp">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/image_avatar_feed"
+                    android:layout_width="96dp"
+                    android:layout_height="96dp"
+                    tools:src="@drawable/marcelino"
+                    app:civ_border_width="2dp"
+                    app:civ_border_color="#FFF"
+                    android:layout_gravity="center"/>
+                <TextView
+                    android:id="@+id/text_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    tools:text="Marcelino Yax"
+                    android:layout_gravity="center"
+                    android:textSize="20sp"
+                    android:layout_marginTop="6dp"
+                    android:layout_marginBottom="6dp"
+                    android:textColor="#212121"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="4"
+                    android:gravity="center">
+
+                    <LinearLayout
+                        style="@style/PointContainer"
+                        android:layout_marginRight="1dp">
+                        <TextView
+                            android:text="@string/today_points"
+                            style="@style/PointTextTitle"/>
+                        <TextView
+                            android:id="@+id/text_pts_today"
+                            tools:text="126"
+                            style="@style/PointTextValue"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        style="@style/PointContainer"
+                        android:layout_marginLeft="1dp"
+                        android:layout_marginRight="1dp">
+                        <TextView
+                            android:text="@string/week_points"
+                            style="@style/PointTextTitle"/>
+                        <TextView
+                            android:id="@+id/text_pts_week"
+                            tools:text="543"
+                            style="@style/PointTextValue"/>
+                    </LinearLayout>
+                    <LinearLayout
+                        style="@style/PointContainer"
+                        android:layout_marginRight="1dp"
+                        android:layout_marginLeft="1dp">
+                        <TextView
+                            android:text="@string/total_points"
+                            style="@style/PointTextTitle"/>
+                        <TextView
+                            android:id="@+id/text_pts_total"
+                            tools:text="4.3K"
+                            style="@style/PointTextValue"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        style="@style/PointContainer"
+                        android:layout_marginLeft="1dp">
+                        <TextView
+                            android:text="@string/rank"
+                            style="@style/PointTextTitle"/>
+                        <TextView
+                            android:id="@+id/text_rank"
+                            tools:text="3"
+                            style="@style/PointTextValue"/>
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/app_bar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                app:layout_collapseMode="pin"
+                app:title="Profile"
+                app:titleTextColor="#CCCBCA"/>
+        </android.support.design.widget.CollapsingToolbarLayout>
+
+    </android.support.design.widget.AppBarLayout>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/feed_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
+
+
+</android.support.design.widget.CoordinatorLayout>
