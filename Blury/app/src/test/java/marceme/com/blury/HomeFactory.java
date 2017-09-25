@@ -28,7 +28,7 @@ public class HomeFactory {
 
     public static Profile makeAProfile() {
         return Profile.builder()
-                .avatarUrl(makeAvatarUrl())
+                .imageAvatar(makeAvatarUrl())
                 .name("Marcelino Yax")
                 .status("Online")
                 .todayPoints(126)
@@ -52,7 +52,7 @@ public class HomeFactory {
     }
 
     private static Feed makeAFeed() {
-        return Feed.builder().avatarUrl(makeAvatarUrl())
+        return Feed.builder().imageAvatar(makeAvatarUrl())
                 .name("Pedro")
                 .message("Is rainy?")
                 .build();

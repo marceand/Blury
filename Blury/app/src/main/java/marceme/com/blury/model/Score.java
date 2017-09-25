@@ -9,7 +9,7 @@ import com.google.gson.TypeAdapter;
 
 @AutoValue
 public abstract class Score {
-    public abstract ImageAvatar avatarUrl();
+    public abstract ImageAvatar imageAvatar();
     public abstract String name();
     public abstract long points();
 
@@ -22,7 +22,7 @@ public abstract class Score {
     }
 
     public String getUrl() {
-        return avatarUrl().url();
+        return imageAvatar().url();
     }
 
     public String getScore() {
@@ -31,7 +31,7 @@ public abstract class Score {
 
     @AutoValue.Builder
     public abstract static class Builder {
-        public abstract Builder avatarUrl(@NonNull ImageAvatar value);
+        public abstract Builder imageAvatar(@NonNull ImageAvatar value);
         public abstract Builder name(@NonNull String value);
         public abstract Builder points(@NonNull long value);
         public abstract Score build();

@@ -1,8 +1,14 @@
 package marceme.com.blury.dependencyinjection;
 
+import android.os.Handler;
+
+import marceme.com.blury.adapter.ChatAdapter;
 import marceme.com.blury.adapter.FeedAdapter;
+import marceme.com.blury.adapter.MessageAdapter;
 import marceme.com.blury.adapter.ScoreAdapter;
+import marceme.com.blury.callback.MessageCallback;
 import marceme.com.blury.home.HomePresenter;
+import marceme.com.blury.message.MessagePresenter;
 import marceme.com.blury.remote.ApiServiceFactory;
 import marceme.com.blury.remote.DataManager;
 import marceme.com.blury.scoreboard.ScoreboardPresenter;
@@ -32,5 +38,21 @@ public class Injector {
 
     public static ScoreAdapter provideScoreAdapter() {
         return new ScoreAdapter();
+    }
+
+    public static Handler provideHandler() {
+        return new Handler();
+    }
+
+    public static ChatAdapter provideChatAdapter() {
+        return new ChatAdapter();
+    }
+
+    public static MessagePresenter provideMessagePresenter() {
+        return new MessagePresenter(provideDataManager());
+    }
+
+    public static MessageAdapter provideMessageAdapter(MessageCallback messageCallback) {
+        return new MessageAdapter(messageCallback);
     }
 }

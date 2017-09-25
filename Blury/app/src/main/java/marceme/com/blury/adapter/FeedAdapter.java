@@ -40,7 +40,8 @@ public class FeedAdapter extends RecyclerView.Adapter<FeedAdapter.FeedViewHolder
 
     @Override
     public void onBindViewHolder(FeedViewHolder holder, int position) {
-        Picasso.with(holder.avatarFeed.getContext()).load(feeds.get(position).getUrl()).into(holder.avatarFeed);
+        Picasso.with(holder.avatarFeed.getContext()).load(feeds.get(position).getUrl())
+                .error(R.drawable.ic_avatar_blue).into(holder.avatarFeed);
         holder.messageFeed.setText(feeds.get(position).messageFormatted());
         holder.dateFeed.setText(feeds.get(position).date());
     }

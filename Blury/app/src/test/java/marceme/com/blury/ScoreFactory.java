@@ -24,7 +24,7 @@ public class ScoreFactory {
     }
 
     public static Score makeAScore() {
-        return Score.builder().avatarUrl(ImageAvatar.create("www.marcem.com/marce.png","Marcelino"))
+        return Score.builder().imageAvatar(ImageAvatar.create("www.marcem.com/marce.png","Marcelino"))
                  .name("Marcelino")
                 .points(100)
                 .build();

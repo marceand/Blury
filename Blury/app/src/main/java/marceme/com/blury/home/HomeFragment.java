@@ -39,6 +39,8 @@ public class HomeFragment extends Fragment implements HomeViewController{
     ImageView imageAvatar;
     @BindView(R.id.text_name)
     TextView name;
+    @BindView(R.id.text_status)
+    TextView status;
     @BindView(R.id.text_pts_today)
     TextView todayPts;
     @BindView(R.id.text_pts_week)
@@ -129,8 +131,9 @@ public class HomeFragment extends Fragment implements HomeViewController{
     @Override
     public void showProfile(Profile profile) {
         Timber.e("one profile");
-        Picasso.with(getActivity()).load(profile.avatarUrl().url()).into(imageAvatar);
+        Picasso.with(getActivity()).load(profile.imageAvatar().url()).into(imageAvatar);
         name.setText(profile.name());
+        status.setText(profile.statusFormatted());
         todayPts.setText(profile.todayPointsAsString());
         weekPts.setText(profile.weekPointsAsString());
         totalPts.setText(profile.totalPointsAsString());

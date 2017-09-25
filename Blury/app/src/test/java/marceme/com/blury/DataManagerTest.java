@@ -10,6 +10,8 @@ import java.util.List;
 
 import marceme.com.blury.model.Feed;
 import marceme.com.blury.model.FeedResult;
+import marceme.com.blury.model.Message;
+import marceme.com.blury.model.MessageResult;
 import marceme.com.blury.model.Profile;
 import marceme.com.blury.model.ProfileResult;
 import marceme.com.blury.model.Score;
@@ -44,7 +46,7 @@ public class DataManagerTest {
 
         doReturn(Observable.just(profileResult))
                 .when(bluryApiService)
-                .geProfile();
+                .getProfile();
 
         TestSubscriber<Profile> testSubscriber = new TestSubscriber<>();
 
@@ -62,7 +64,7 @@ public class DataManagerTest {
 
         doReturn(Observable.just(feedResult))
                 .when(bluryApiService)
-                .geFeed();
+                .getFeed();
 
         TestSubscriber<List<Feed>> testSubscriber = new TestSubscriber<>();
 
@@ -79,7 +81,7 @@ public class DataManagerTest {
 
         doReturn(Observable.just(scoreResult))
                 .when(bluryApiService)
-                .geScore();
+                .getScore();
 
         TestSubscriber<List<Score>> testSubscriber = new TestSubscriber<>();
         dataManager.getScore().subscribe(testSubscriber);
@@ -87,5 +89,21 @@ public class DataManagerTest {
         testSubscriber.assertCompleted();
         testSubscriber.assertValueCount(1);
         testSubscriber.assertValue(scoreResult.results());
+    }
+
+    @Test
+    public void getMessages() throws Exception{
+        MessageResult messageResult= MessageFactory.makeMessageResult();
+
+        doReturn(Observable.just(messageResult))
+                .when(bluryApiService)
+                .getMessages();
+
+        TestSubscriber<List<Message>> testSubscriber = new TestSubscriber<>();
+        dataManager.getMessages().subscribe(testSubscriber);
+
+        testSubscriber.assertCompleted();
+        testSubscriber.assertValueCount(1);
+        testSubscriber.assertValue(messageResult.results());
     }
 }

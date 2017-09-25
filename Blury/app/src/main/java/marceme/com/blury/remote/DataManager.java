@@ -4,11 +4,12 @@ import java.util.List;
 
 import marceme.com.blury.model.Feed;
 import marceme.com.blury.model.FeedResult;
+import marceme.com.blury.model.Message;
+import marceme.com.blury.model.MessageResult;
 import marceme.com.blury.model.Profile;
 import marceme.com.blury.model.ProfileResult;
 import marceme.com.blury.model.Score;
 import marceme.com.blury.model.ScoreResult;
-import marceme.com.blury.scoreboard.ScoreboardPresenter;
 import rx.Observable;
 import rx.functions.Func1;
 
@@ -27,7 +28,7 @@ public class DataManager {
     }
 
     public Observable<Profile> getProfile() {
-        return bluryApiService.geProfile().map(new Func1<ProfileResult, Profile>() {
+        return bluryApiService.getProfile().map(new Func1<ProfileResult, Profile>() {
             @Override
             public Profile call(ProfileResult profileResult) {
                 return profileResult.results().get(0);
@@ -36,7 +37,7 @@ public class DataManager {
     }
 
     public Observable<List<Feed>> getFeeds() {
-        return bluryApiService.geFeed().map(new Func1<FeedResult, List<Feed>>() {
+        return bluryApiService.getFeed().map(new Func1<FeedResult, List<Feed>>() {
             @Override
             public List<Feed> call(FeedResult feedResult) {
                 return feedResult.results();
@@ -45,10 +46,19 @@ public class DataManager {
     }
 
     public Observable<List<Score>> getScore() {
-        return bluryApiService.geScore().map(new Func1<ScoreResult, List<Score>>() {
+        return bluryApiService.getScore().map(new Func1<ScoreResult, List<Score>>() {
             @Override
             public List<Score> call(ScoreResult scoreResult) {
                 return scoreResult.results();
+            }
+        });
+    }
+
+    public Observable<List<Message>> getMessages() {
+        return bluryApiService.getMessages().map(new Func1<MessageResult, List<Message>>() {
+            @Override
+            public List<Message> call(MessageResult messageResult) {
+                return messageResult.results();
             }
         });
     }

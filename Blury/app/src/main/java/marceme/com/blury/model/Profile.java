@@ -13,7 +13,7 @@ import com.google.gson.TypeAdapter;
 
 @AutoValue
 public abstract class Profile {
-    public abstract ImageAvatar avatarUrl();
+    public abstract ImageAvatar imageAvatar();
     public abstract String name();
     public abstract String status();
     public abstract long todayPoints();
@@ -45,9 +45,13 @@ public abstract class Profile {
         return String.valueOf(rank());
     }
 
+    public String statusFormatted() {
+        return String.format("Status: %s", status());
+    }
+
     @AutoValue.Builder
     public abstract static class Builder {
-        public abstract Builder avatarUrl(@NonNull ImageAvatar value);
+        public abstract Builder imageAvatar(@NonNull ImageAvatar value);
         public abstract Builder name(@NonNull String value);
         public abstract Builder status(@NonNull String value);
         public abstract Builder todayPoints(@NonNull long value);

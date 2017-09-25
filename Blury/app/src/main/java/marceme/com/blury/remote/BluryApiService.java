@@ -5,6 +5,7 @@ import java.util.List;
 
 import marceme.com.blury.model.Feed;
 import marceme.com.blury.model.FeedResult;
+import marceme.com.blury.model.MessageResult;
 import marceme.com.blury.model.Profile;
 import marceme.com.blury.model.ProfileResult;
 import marceme.com.blury.model.ScoreResult;
@@ -21,11 +22,14 @@ public interface BluryApiService {
     String PARSE_BASE_URL = "https://parseapi.back4app.com/";
 
     @GET("classes/profile")
-    Observable<ProfileResult> geProfile();
+    Observable<ProfileResult> getProfile();
 
     @GET("classes/feed")
-    Observable<FeedResult> geFeed();
+    Observable<FeedResult> getFeed();
 
     @GET("classes/score")
-    Observable<ScoreResult> geScore();
+    Observable<ScoreResult> getScore();
+
+    @GET("classes/messages")
+    Observable<MessageResult> getMessages();
 }
