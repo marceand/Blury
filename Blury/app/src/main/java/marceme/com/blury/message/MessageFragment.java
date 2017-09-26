@@ -5,12 +5,14 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ProgressBar;
 
 import java.util.List;
 
@@ -25,6 +27,8 @@ import marceme.com.blury.model.Chat;
 import marceme.com.blury.model.Message;
 import timber.log.Timber;
 
+import static android.support.v7.widget.DividerItemDecoration.VERTICAL;
+
 /**
  * A simple {@link Fragment} subclass.
  * Use the {@link MessageFragment#newInstance} factory method to
@@ -35,6 +39,8 @@ public class MessageFragment extends Fragment implements MessageViewController, 
 
     @BindView(R.id.list_message)
     RecyclerView messageRecyclerView;
+    @BindView(R.id.progress_message)
+    ProgressBar messageProgress;
 
     private MessagePresenter messagePresenter;
     private MessageAdapter messageAdapter;
@@ -81,6 +87,7 @@ public class MessageFragment extends Fragment implements MessageViewController, 
 
     private void setupMessageRecyclerView() {
         messageRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+        messageRecyclerView.addItemDecoration(new DividerItemDecoration(getActivity(), VERTICAL));
         messageAdapter = Injector.provideMessageAdapter(this);
         messageRecyclerView.setAdapter(messageAdapter);
     }
@@ -102,7 +109,7 @@ public class MessageFragment extends Fragment implements MessageViewController, 
 
     @Override
     public void showProgressBar(boolean show) {
-
+        messageProgress.setVisibility(show ? View.VISIBLE : View.GONE);
     }
 
     @Override

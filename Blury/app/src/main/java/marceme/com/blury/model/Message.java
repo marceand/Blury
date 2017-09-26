@@ -8,7 +8,7 @@ import com.google.gson.TypeAdapter;
 
 import java.util.Date;
 
-import marceme.com.blury.Util.Helper;
+import marceme.com.blury.util.Helper;
 
 /**
  * @author Marcelino Yax-marce7j@gmail.com-Android Developer

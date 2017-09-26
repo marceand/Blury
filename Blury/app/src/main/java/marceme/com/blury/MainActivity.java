@@ -9,7 +9,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import marceme.com.blury.Helper.BottomNavigationViewHelper;
+import marceme.com.blury.helper.BottomNavigationViewHelper;
 import marceme.com.blury.home.HomeFragment;
 import marceme.com.blury.message.MessageFragment;
 import marceme.com.blury.scoreboard.MainScoreboardFragment;
@@ -65,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
                         addFragmentToContainer(MainScoreboardFragment.newInstance());
                         return true;
                     case R.id.navigation_message:
-                        Timber.i("on score navigation");
+                        Timber.i("on message navigation");
                         addFragmentToContainer(MessageFragment.newInstance());
                         return true;
                     case R.id.navigation_game:

@@ -1,7 +1,6 @@
 package marceme.com.blury.model;
 
 import android.support.annotation.NonNull;
-import android.text.format.DateUtils;
 
 import com.google.auto.value.AutoValue;
 import com.google.gson.Gson;
@@ -9,7 +8,7 @@ import com.google.gson.TypeAdapter;
 
 import java.util.Date;
 
-import marceme.com.blury.Util.Helper;
+import marceme.com.blury.util.Helper;
 
 /**
  * @author Marcelino Yax-marce7j@gmail.com-Android Developer

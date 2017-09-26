@@ -39,6 +39,7 @@ public class HomePresenter {
     public void loadProfile() {
 
         homeViewController.showProfileProgressBar(true);
+
         if (profileSubscription != null) profileSubscription.unsubscribe();
 
         profileSubscription = dataManager.getProfile()
@@ -69,10 +70,12 @@ public class HomePresenter {
 
 
     public void loadFeed() {
+
         homeViewController.showFeedProgressBar(true);
+
         if (feedSubscription != null) feedSubscription.unsubscribe();
 
-         feedSubscription= dataManager.getFeeds()
+         feedSubscription = dataManager.getFeeds()
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
                  .subscribe(new Subscriber<List<Feed>>() {

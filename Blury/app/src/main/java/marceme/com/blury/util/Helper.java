@@ -1,4 +1,4 @@
-package marceme.com.blury.Util;
+package marceme.com.blury.util;
 
 import android.text.format.DateUtils;
 

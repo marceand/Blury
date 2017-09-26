@@ -34,7 +34,7 @@
         android:layout_toLeftOf="@+id/text_date_message"
         android:layout_below="@+id/text_name_message"
         android:padding="2dp"
-        android:textSize="12sp"/>
+        android:textSize="14sp"/>
 
     <TextView
         android:id="@+id/text_date_message"
@@ -59,11 +59,4 @@
         android:textColor="#fff"
         android:gravity="center"
         android:layout_below="@+id/text_date_message"/>
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="#bbbbbb"
-        android:layout_below="@+id/image_avatar_message"
-        android:layout_marginTop="8dp"/>
 </RelativeLayout>

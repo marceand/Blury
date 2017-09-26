@@ -51,12 +51,4 @@
         android:layout_centerVertical="true"
         android:textSize="18sp"
         android:textStyle="bold"/>
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="#bbbbbb"
-        android:layout_toEndOf="@+id/text_score_position"
-        android:layout_below="@+id/image_avatar_score"
-        android:layout_marginTop="8dp"/>
 </RelativeLayout>

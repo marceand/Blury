@@ -1,4 +1,4 @@
-package marceme.com.blury.Helper;
+package marceme.com.blury.helper;
 
 import android.support.design.internal.BottomNavigationItemView;
 import android.support.design.internal.BottomNavigationMenuView;

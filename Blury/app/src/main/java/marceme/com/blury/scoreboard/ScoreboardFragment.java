@@ -3,6 +3,7 @@ package marceme.com.blury.scoreboard;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -20,6 +21,8 @@ import marceme.com.blury.adapter.ScoreAdapter;
 import marceme.com.blury.dependencyinjection.Injector;
 import marceme.com.blury.model.Score;
 import timber.log.Timber;
+
+import static android.support.v7.widget.DividerItemDecoration.VERTICAL;
 
 
 public class ScoreboardFragment extends Fragment implements ScoreboardViewController{
@@ -61,6 +64,7 @@ public class ScoreboardFragment extends Fragment implements ScoreboardViewContro
 
     private void setupRecyclerView() {
         scoreRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+        scoreRecyclerView.addItemDecoration(new DividerItemDecoration(getActivity(), VERTICAL));
         scoreAdapter = Injector.provideScoreAdapter();
         scoreRecyclerView.setAdapter(scoreAdapter);
     }

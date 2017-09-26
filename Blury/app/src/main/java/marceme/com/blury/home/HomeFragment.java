@@ -76,6 +76,25 @@ public class HomeFragment extends Fragment implements HomeViewController{
         return view;
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        homePresenter.loadFeed();
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        homePresenter.unsubscribeLoadFeed();
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        homePresenter.detachView();
+        unbinder.unbind();
+    }
+
     private void setupRecyclerView() {
         feedRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         feedAdapter = Injector.provideFeedAdapter();
@@ -95,25 +114,6 @@ public class HomeFragment extends Fragment implements HomeViewController{
         homePresenter = Injector.provideHomePresenter();
         homePresenter.attachView(this);
         homePresenter.loadProfile();
-    }
-
-    @Override
-    public void onResume() {
-        super.onResume();
-        homePresenter.loadFeed();
-    }
-
-    @Override
-    public void onPause() {
-        super.onPause();
-        homePresenter.unsubscribeLoadFeed();
-    }
-
-    @Override
-    public void onDestroy() {
-        super.onDestroy();
-        homePresenter.detachView();
-        unbinder.unbind();
     }
 
     @Override
